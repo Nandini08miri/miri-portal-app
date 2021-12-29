@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'http://192.168.1.32:539/' ,
+  localbaseUrl: 'http://192.168.1.32:539/',
+  encryptionkey:'HR$miri!2theB0ss',
+  incentivePercentage:50,
+  sMCincentivePercentage:10,
+  invoiceDate:25,
+  minimumTottalPaybleSalary:5000
 };
 
 /*

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form class="form" [formGroup]="userForm" (ngSubmit)="signIn(userForm.value)">
+    <ion-item>
+      <ion-label position="floating">User Name</ion-label>
+      <ion-input type="text" formControlName="UserEmail" [(ngModel)]="userLogin.UserEmail" ></ion-input>
+    </ion-item>
+
+    <!-- <ng-container *ngFor="let error of errormsg.name">
+      <div *ngIf="userForm.get('userEmail').hasError(error.type) && (userForm.get('userEmail').dirty || userForm.get('userEmail').touched)">
+        {{ error.message }}
+      </div>
+    </ng-container> -->
+
+    <ion-item>
+      <ion-label position="floating" color="primary" >Password</ion-label>
+      <ion-input type="password" formControlName="Password" [(ngModel)]="userLogin.Password"  class="form-controll" required></ion-input>
+    </ion-item>
+
+    <!-- <ng-container *ngFor="let error of errormsg.password">
+        <div *ngIf="userForm.get('password').hasError(error.type) && (userForm.get('password').dirty || userForm.get('password').touched)">
+          {{ error.message }}
+        </div>
+    </ng-container> -->
+
+    <ion-button type="submit" expand="block" [disabled]="!userForm.valid">Signin</ion-button>
+
+    <label class="ion-text-center" color="danger">{{errorMsg}}</label>
+  </form>
+
+</ion-content>
