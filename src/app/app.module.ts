@@ -12,11 +12,12 @@ import { AppInjectorService } from './core/services/app-injector.service';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: ApiInterceptorService,
-    multi: true
-  },
+  providers: [
+  //   {
+  //   provide: HTTP_INTERCEPTORS,
+  //   useClass: ApiInterceptorService,
+  //   multi: true
+  // },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     
   ],
