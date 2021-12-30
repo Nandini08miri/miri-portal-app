@@ -1,0 +1,22 @@
+
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Leave Balance</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <label>Resource:</label><br>
+                            <mat-form-field >
+                                <mat-select>
+                                    <mat-option>
+                                        <ngx-mat-select-search [placeholderLabel]="'Search...'"
+                                            [formControl]="resourceFilterCtrl" noEntriesFoundLabel="'Not found'"
+                                            name="search"></ngx-mat-select-search>
+                                    </mat-option>
+                                    <mat-option hidden value="0">--Select--</mat-option>
+                                    <mat-option *ngFor="let Obj of filterResource | async " [value]="Obj.ID">
+                                        {{Obj.FirstName}} ({{Obj.EmployeeID}})
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+</ion-content>

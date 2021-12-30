@@ -6,15 +6,18 @@ import { IonicModule } from '@ionic/angular';
 
 import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
-import { DashboardPage } from './dashboard.page';
-
+import { DashboardPage } from './dashboard/dashboard.page';
+import{SharedModule} from '../shared/shared.module'
+import { LeavebalnceComponent } from './leavebalnce/leavebalnce.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     DashboardPageRoutingModule
   ],
-  declarations: [DashboardPage]
+  declarations: [DashboardPage,LeavebalnceComponent
+  ],
 })
 export class DashboardPageModule {}

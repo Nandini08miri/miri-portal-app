@@ -5,12 +5,12 @@ import { AuthenticationService } from './authentication.service';
 import { tap } from 'rxjs/operators';
 import { SpinnerService } from './spinner.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class ApiInterceptorService {
 
   constructor(private authenticationService: AuthenticationService,
-    public toastrService:ToastrService,
+    // public toastrService:ToastrService,
     public _spinner: SpinnerService,
     public router: Router) {}
 
@@ -40,7 +40,7 @@ export class ApiInterceptorService {
                   this.router.navigate(['/notauthorised']);
                 }
                 else if(err.status===0){
-                  this.toastrService.warning(' No Internet Connection. ');
+                  // this.toastrService.warning(' No Internet Connection. ');
                 }
                
               }

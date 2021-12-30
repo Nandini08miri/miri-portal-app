@@ -7,11 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiInterceptorService } from '../app/core/services/api-interceptor.service';
 import { AppInjectorService } from './core/services/app-injector.service';
-
+import { BaseComponent } from "./modules/base.component";
+import { SharedModule } from './modules/shared/shared.module';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, BaseComponent,],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,SharedModule],
   providers: [
   //   {
   //   provide: HTTP_INTERCEPTORS,
@@ -21,6 +22,7 @@ import { AppInjectorService } from './core/services/app-injector.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     
   ],
+  exports:[BaseComponent,SharedModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {
