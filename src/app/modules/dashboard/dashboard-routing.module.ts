@@ -2,18 +2,27 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardPage } from '../dashboard/dashboard/dashboard.page';
+import { SalaryComponent } from './account/salary/salary.component';
+import { CelebrationsComponent } from './celebrations/celebrations.component';
 import { LeavebalnceComponent } from './leavebalnce/leavebalnce.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardPage
+    component: DashboardPage,
   },
   {
     path: 'leavebalance',
-    component: LeavebalnceComponent
-  }
-
+    component: LeavebalnceComponent,
+  },
+  {
+    path: 'salary',
+    component: SalaryComponent,
+  },
+  {
+    path: 'celebration',
+    component: CelebrationsComponent,
+  },
 ];
 
 @NgModule({

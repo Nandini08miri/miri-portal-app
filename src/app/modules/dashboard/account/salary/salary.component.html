@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Salary details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-resourcesdropdown></app-resourcesdropdown>
+  <table style="width:70%;height:500px;padding: 25px; background-color: #fff;" align="center" width="100%" height="842"
+    cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td>
+          <table style="border-collapse: collapse; width: 100%;" width="595" cellpadding="0" cellspacing="0"
+            *ngIf="salary">
+            <tbody>
+              <tr>
+                <th style=" border: 1px solid #c1c1c1;border-collapse: collapse; padding: 15px;border-color: #272727;font-family: Trebuchet MS;
+                     text-align: left;font-size:16px;color:white;background-color: black;"> Earnings </th>
+                <th style=" border: 1px solid #c1c1c1;border-collapse: collapse; padding: 15px;border-color: #272727;font-family: Trebuchet MS;
+                     text-align: left;font-size:16px;color:white;background-color: black;">Amount (₹)</th>
+                <th style=" border: 1px solid #c1c1c1;border-collapse: collapse; padding: 15px;border-color: #272727;font-family: Trebuchet MS;
+                     text-align: left;font-size:16px;color:white;background-color: black;">Deductions</th>
+                <th style=" border: 1px solid #c1c1c1;border-collapse: collapse; padding: 15px;border-color: #272727;font-family: Trebuchet MS;
+                     text-align: left;font-size:16px;color:white;background-color: black;">Amount (₹)</th>
+              </tr>
+              <tr>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px; font-family: Trebuchet MS;
+                     text-align: left;"> Basic</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                     text-align: left;">{{salary.BasicSalary | number:'1.0-0'}}</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;">Income Tax Deduction </td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;">{{salary.TDSDeducton | number:'1.0-0'}}</td>
+
+              </tr>
+              <tr>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                      text-align: left;">HRA</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                      text-align: left;">{{salary.HRA | number:'1.0-0'}}</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                      text-align: left;"><span *ngIf="+objPFMonthAndYear.PFMonth>0">PF Amount</span></td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                      text-align: left;"><span *ngIf="+objPFMonthAndYear.PFMonth>0">{{salary.PFAmount |
+                    number:'1.0-0'}}</span></td>
+
+              </tr>
+              <tr>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;">LTA</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;">{{salary.LTA | number:'1.0-0'}}</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;"><span *ngIf="+objPFMonthAndYear.PFMonth>0">Gratuity</span></td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;"><span *ngIf="+objPFMonthAndYear.PFMonth>0">{{salary.Gratuity |
+                    number:'1.0-0'}}</span></td>
+
+              </tr>
+              <tr>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;">Medical</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;">{{salary.Medical | number:'1.0-0'}} </td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                   text-align: left;"> </td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                   text-align: left;"></td>
+              </tr>
+              <tr>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                        text-align: left;">Special Allowance </td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                        text-align: left;">{{salary.SpecialAllowence | number:'1.0-0'}}</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                  text-align: left;"></td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                  text-align: left;"></td>
+              </tr>
+              <tr>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                        text-align: left;font-size:14px;font-weight: 800;"> Gross Earnings </td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                        text-align: left;font-size:14px;font-weight: 800;">
+                  {{salary.TotalPaybleSalary | number:'1.0-0'}}
+                </td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                        text-align: left;font-size:14px;font-weight: 800;">Gross Deductions</td>
+                <td style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                        text-align: left;font-size:14px;font-weight: 800;">
+                  {{(+salary.TDSDeducton) + (+salary.PFAmount) + (+salary.Gratuity) | number:'1.0-0'}}
+                </td>
+              </tr>
+              <tr>
+                <th style=" border: 0px solid white;"> </th>
+                <th style=" border: 0px solid white;"></th>
+                <th style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;font-size:14px;font-weight: 800;">NET PAYMENT (₹)</th>
+                <th style=" border: 2px solid #c1c1c1;border-collapse: collapse; padding: 15px;font-family: Trebuchet MS;
+                       text-align: left;font-size:14px;font-weight: 800;">{{salary.TotalPaybleSalary-(
+                  (+salary.TDSDeducton) +
+                  (+salary.PFAmount) + (+salary.Gratuity)) | number:'1.0-0'}}/-</th>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>
