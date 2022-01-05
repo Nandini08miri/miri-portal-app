@@ -1,24 +1,43 @@
-<ion-header>
+<ion-header translucent="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Back" mode="ios" ></ion-back-button>
+    </ion-buttons>
     <ion-title>Leave Balance</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-resourcesdropdown ></app-resourcesdropdown>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Type of Leave</th>
+              <th>Leave Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <tr *ngFor="let leaveBalance of leaveBalances">
+                  <td>{{leaveBalance.LeaveName}}</td>
+                  <td>{{leaveBalance.Balance}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Type of Leave</th>
-        <th>Leave Balance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- <tr *ngFor="let leaveBalance of leaveBalances">
-            <td>{{leaveBalance.LeaveName}}</td>
-            <td>{{leaveBalance.Balance}}</td>
-        </tr> -->
-    </tbody>
-  </table>
-  <app-resourcesdropdown></app-resourcesdropdown>
+ 
+</ion-content>
+<ion-content>
+ 
 </ion-content>

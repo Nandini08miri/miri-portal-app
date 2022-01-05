@@ -1,11 +1,13 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
     <ion-title>dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen class="ion-padding">
   <ion-button [routerLink]="['/dashboard/leavebalance']">Leave Balance</ion-button><br>
-  <ion-button [routerLink]="['/dashboard/salary']">Salary</ion-button><br>
+  <!-- <ion-button [routerLink]="['/dashboard/salary']">Salary</ion-button><br> -->
+  <ion-button (click)="presentActionSheet()">Salary</ion-button>
+  <!-- <ion-button [routerLink]="['/dashboard/salaryslip']">Salary Slip</ion-button><br> -->
   <ion-button [routerLink]="['/dashboard/celebration']">Celebration</ion-button><br>
 </ion-content>

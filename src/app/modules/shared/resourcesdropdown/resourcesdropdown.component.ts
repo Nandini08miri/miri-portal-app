@@ -18,7 +18,7 @@ export class ResourcesdropdownComponent
   private _onDestroy = new Subject<void>();
   public resourceFilterCtrl: FormControl = new FormControl();
   objResource = new Resource();
-  resoucres = [];
+  resources = [];
   allUsers: any[];
   constructor() {
     super();
@@ -38,27 +38,27 @@ export class ResourcesdropdownComponent
       .subscribe((resource) => {
         if (resource.StatusCode === 200) {
           this.filterResource.next(resource.response.slice());
-          this.resoucres = resource.response;
+          this.resources = resource.response;
           this.objResource = resource.response[0];
         }
       });
   }
   private filterresources() {
-    if (!this.resoucres) {
+    if (!this.resources) {
       return;
     }
     // get the search keyword
     let search = this.resourceFilterCtrl.value;
     if (!search) {
-      this.filterResource.next(this.resoucres.slice());
+      this.filterResource.next(this.resources.slice());
       return;
     } else {
       search = search.toLowerCase();
     }
     // filter the timezone
     this.filterResource.next(
-      this.resoucres.filter(
-        (resoucre) => resoucre.FirstName.toLowerCase().indexOf(search) > -1
+      this.resources.filter(
+        (filtrResources) => filtrResources.FirstName.toLowerCase().indexOf(search) > -1
       )
     );
   }

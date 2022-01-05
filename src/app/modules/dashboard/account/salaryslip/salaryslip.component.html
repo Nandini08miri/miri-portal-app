@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Salary Slip details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <table class="table align-items-center table-flush">
+    <thead class="thead-light">
+        <tr>
+           
+            <th>Salary Year</th>
+            <th>Salary Month</th>
+            <th>Leave In Month</th>
+            <th>Basic Salary</th>
+            <th>HRA</th>
+            <th>LTA</th>
+            <th>Medical</th>
+            <th>Other Special Allowence</th>
+            <th>Incentives</th>
+            <th>Total Salary PM</th>
+            <th>Tax Deduction PM</th>
+            <th>Leave Deduction</th>
+            <th *ngIf="+objPFMonthAndYear.PFMonth>0 ">PF Amount</th>
+            <th *ngIf="+objPFMonthAndYear.PFMonth>0 ">Gratuity</th>
+            <th>Other Deduction</th>
+            <th> Total Deduction</th>
+            <th>Reason For Other Deduction</th>
+            <th>Total Payable Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let salary of SalarySlip ">
+            
+            <td>{{salary.SalaryYear}}</td>
+            <td>{{convert(salary.SalaryMonth)}}</td>
+            <td>{{salary.LeaveInMonth}}</td>
+            <td>{{salary.BasicSalary}}</td>
+            <td>{{salary.HRA}}</td>
+            <td>{{salary.LTA}}</td>
+            <td>{{salary.Medical}}</td>
+            <td>{{salary.OtherSpecialAllowence | number:'1.0-0'}}</td>
+            <td>{{salary.Incentives| number:'1.0-0'}}</td>
+            <td>{{salary.TotalSalaryPM | number:'1.0-0'}}</td>
+            <td>{{salary.TaxDeductionPM | number:'1.0-0'}}</td>
+            <td>{{salary.LeaveDeduction | number:'1.0-0'}}</td>
+            <td *ngIf="+objPFMonthAndYear.PFMonth>0 ">{{salary.PFAmount}}</td>
+            <td *ngIf="+objPFMonthAndYear.PFMonth>0 ">{{salary.Gratuity}}</td>
+            <td>{{salary.OtherDeduction | number:'1.0-0'}}</td>
+            <td>{{salary.TaxDeductionPM+salary.LeaveDeduction+salary.OtherDeduction+salary.PFAmount+salary.Gratuity}}
+            </td>
+            <td>{{salary.ReasonForOtherDeduction }}</td>
+            <td>{{salary.TotalSalaryPM
+                -(salary.TaxDeductionPM+salary.LeaveDeduction+salary.OtherDeduction+salary.PFAmount+salary.Gratuity)}}
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+</ion-content>

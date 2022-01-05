@@ -32,6 +32,7 @@ export class AccountserviceService {
       })
     );
   }
+ 
   Decrptsalarydetail(details) {
     details.BasicSalary = this.encrDecrService.Decrypt(details.BasicSalary);
     details.HRA = this.encrDecrService.Decrypt(details.HRA);

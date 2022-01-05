@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PFMonthAndYear } from 'src/app/modals/pfmonth-and-year';
-import { SalaryDetail } from 'src/app/modals/salary-slip';
+import { SalaryDetail } from 'src/app/modals/salary-details';
 import { AccountserviceService } from '../accountservice.service';
 
 @Component({

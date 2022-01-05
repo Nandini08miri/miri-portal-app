@@ -5,6 +5,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [ResourcesdropdownComponent],
   imports: [
@@ -13,6 +14,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatFormFieldModule,
     MatSelectModule,
     NgxMatSelectSearchModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [ResourcesdropdownComponent],
 })
