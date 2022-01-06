@@ -1,5 +1,5 @@
 export class Login {
-  public UserEmail :string="";
+  public UserName :string="";
   public Password : string="";
 }
 

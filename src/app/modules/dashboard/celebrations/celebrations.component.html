@@ -4,6 +4,82 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-
+  <div id="LblHoliday" >
+    <div >
+        <div >
+            <div >
+            <h3 >{{Month | date :'MMMM'}} Birthday's & Anniversary List</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div >
+<table width="100%">     
+    <tr *ngIf="birthdaysAnniversaries">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td align="right">
+                            <a id="dobFirst" title="First" href="javascript:void(0)" title="First" (click)="dobFirstClick()" ><i >left</i></a>
+                        </td>
+                        <td align="right">
+                            <a id="dobPrevious" title="Prev" href="javascript:void(0)" title="Previous" alternatetext="Previous" (click)="dobPreviousClick()"><i class="fa fa-arrow-left">Previous</i></a>
+                        </td>
+                        <td align="center">                                                
+                            <span id="dobMMyyyy"><strong>{{Month | date :'MMMM'}}</strong></span>                                               
+                        </td>
+                        <td>
+                            <a id="dobNext" title="Next" href="javascript:void(0)" title="Next" alternatetext="Next" (click)="dobNextClick()"><i class="fa fa-arrow-right">next</i></a>
+                        </td>
+                        <td>
+                            <a id="dobLast" title="Last" href="javascript:void(0)" title="Last" alternatetext="Last" (click)="dobLastClick()"><i class="fa fa-chevron-circle-right">right</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>                             
+    <tr *ngIf="birthdaysAnniversaries && birthdaysAnniversaries.length>0">
+        <td>
+            <div id="tblCharges">
+                <div>
+                    <table >
+                        <thead >
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Birthday</th>
+                                <th scope="col">Anniversary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let birthdaysAnniversary of birthdaysAnniversaries">
+                                <td>{{birthdaysAnniversary.FirstName}}</td>
+                                <td>{{birthdaysAnniversary.DateOfBirth| date :'MMMM dd, EEEE'}}</td>
+                                <td>{{birthdaysAnniversary.AnniversaryDate| date :'MMMM dd, EEEE'}}</td>
+                            </tr>                                                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr *ngIf="birthdaysAnniversaries && birthdaysAnniversaries.length===0">
+        <td>
+            <div id="dvHolidays">
+                <div>
+                    <table class="table" id="tblHolidays">
+                        <tbody>
+                            <tr>
+                                <th colspan="2" class="text-center"><strong>No Birthdays or Anniversaries in {{Month | date :'MMMM'}} month</strong></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+ </table>
+</div>
 
 </ion-content>

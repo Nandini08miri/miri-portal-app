@@ -14,31 +14,10 @@ export class LoginPage implements OnInit {
   employee: Array<Resource>;
   userForm: FormGroup;
   successMsg = '';
-  errorMsg ='';
+  errormsg: string = '';
   redirectUrl: string;
   userLogin: Login = new Login();
-  errormsg = {
-    // name: [
-    //   {
-    //     type: 'required',
-    //     message: 'Provide name.'
-    //   },
-    //   {
-    //     type: 'pattern',
-    //     message: 'name is not valid.'
-    //   }
-    // ],
-    // password: [
-    //   {
-    //     type: 'required',
-    //     message: 'Password is required.'
-    //   },
-    //   {
-    //     type: 'minlength',
-    //     message: 'Password length should be 6 characters long.'
-    //   }
-    // ]
-  };
+  isSubmitted = false;
 
   constructor(
     private router: Router,
@@ -51,7 +30,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.userForm = this.fb.group({
-      UserEmail: new FormControl('', Validators.compose([
+      UserName: new FormControl('', Validators.compose([
         Validators.required,
         //Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
@@ -61,11 +40,18 @@ export class LoginPage implements OnInit {
       ])),
     });
   }
-
+  get f() {
+    return this.userForm.controls;
+  }
    signIn(value) {
-    this.authService.LoginUser(this.userLogin.UserEmail,this.userLogin.Password).subscribe(token => {
+    this.isSubmitted = true;
+    if (!this.userForm.valid) {
+      console.log('Please provide all the required values!')
+      return false;
+    } else {
+    this.authService.LoginUser(this.userLogin.UserName,this.userLogin.Password).subscribe(token => {
       if (token.StatusCode === 200) {
-        token.response._UserDetail.UserName = this.userLogin.UserEmail;
+        token.response._UserDetail.UserName = this.userLogin.UserName;
         token.response._UserDetail.Access_token = token.response.Access_token;
         this.authService.setToken(token.response);
         this.authService.setloggedIn();
@@ -91,16 +77,27 @@ export class LoginPage implements OnInit {
         }
       }
       else if (token.StatusCode === 405) {
-        //this.errormsg = 'Something went Wrong';
+        this.errormsg = 'Something went Wrong';
       }
       else {
-        //this.errormsg = 'Username or password is incorrect.';
+        this.errormsg = 'Username or password is incorrect.';
       }
     },
+
       err => this.errormsg = err
     );
+  }
 
 
+    }
+    submitForm() {
+      this.isSubmitted = true;
+      if (!this.userForm.valid) {
+        console.log('Please provide all the required values!')
+        return false;
+      } else {
+        console.log(this.userForm.value)
+      }
     }
   }
 

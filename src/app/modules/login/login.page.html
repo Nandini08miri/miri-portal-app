@@ -5,31 +5,29 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
   <form class="form" [formGroup]="userForm" (ngSubmit)="signIn(userForm.value)">
     <ion-item>
       <ion-label position="floating">User Name</ion-label>
-      <ion-input type="text" formControlName="UserEmail" [(ngModel)]="userLogin.UserEmail" ></ion-input>
+      <ion-input type="text" formControlName="UserName" [(ngModel)]="userLogin.UserName" ></ion-input>
     </ion-item>
-
-    <!-- <ng-container *ngFor="let error of errormsg.name">
-      <div *ngIf="userForm.get('userEmail').hasError(error.type) && (userForm.get('userEmail').dirty || userForm.get('userEmail').touched)">
-        {{ error.message }}
-      </div>
-    </ng-container> -->
+<span class="error ion-padding" *ngIf="isSubmitted && f.UserName.errors?.required">
+    Name is required.
+  </span>
 
     <ion-item>
       <ion-label position="floating" color="primary" >Password</ion-label>
-      <ion-input type="password" formControlName="Password" [(ngModel)]="userLogin.Password"  class="form-controll" required></ion-input>
+      <ion-input type="password" formControlName="Password" [(ngModel)]="userLogin.Password" required></ion-input>
     </ion-item>
 
-    <!-- <ng-container *ngFor="let error of errormsg.password">
-        <div *ngIf="userForm.get('password').hasError(error.type) && (userForm.get('password').dirty || userForm.get('password').touched)">
-          {{ error.message }}
-        </div>
-    </ng-container> -->
+    <span class="error ion-padding" *ngIf="isSubmitted && f.Password.errors?.required">
+      Password is required.
+    </span>
 
-    <ion-button type="submit" expand="block" [disabled]="!userForm.valid">Signin</ion-button>
-
+    <ion-button type="submit" expand="block" >Signin</ion-button>
+    <span *ngIf="errormsg!=''" class="">
+      {{errormsg}}
+    </span> 
     <label class="ion-text-center" color="danger">{{errorMsg}}</label>
   </form>
 
